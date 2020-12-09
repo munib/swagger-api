@@ -1,0 +1,1062 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "fdi-suppliers-service",
+    "version": "1.0.0",
+    "description": "fdi-suppliers-service",
+    "contact": {}
+  },
+  "paths": {
+    "/region/available-state/{supplierCode}": {
+      "get": {
+        "x-controller-name": "RegionController",
+        "x-operation-name": "findAvailableStateBySupplierCode",
+        "tags": [
+          "RegionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of regions with states",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "supplierCode",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "RegionController.findAvailableStateBySupplierCode"
+      }
+    },
+    "/region/create": {
+      "post": {
+        "x-controller-name": "RegionController",
+        "x-operation-name": "createSupplierRegion",
+        "tags": [
+          "RegionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Supplier Region model instance"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "operationId": "RegionController.createSupplierRegion"
+      }
+    },
+    "/region/delete/{id}": {
+      "delete": {
+        "x-controller-name": "RegionController",
+        "x-operation-name": "deleteRegion",
+        "tags": [
+          "RegionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Supplier Region model instance"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "RegionController.deleteRegion"
+      }
+    },
+    "/region/states": {
+      "get": {
+        "x-controller-name": "RegionController",
+        "x-operation-name": "findSupplierRegions",
+        "tags": [
+          "RegionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of regions with states",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RegionController.findSupplierRegions"
+      }
+    },
+    "/region/update/state": {
+      "post": {
+        "x-controller-name": "RegionController",
+        "x-operation-name": "updateStateRegionBySupplierCode",
+        "tags": [
+          "RegionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Supplier Region model instance"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "operationId": "RegionController.updateStateRegionBySupplierCode"
+      }
+    },
+    "/region/update": {
+      "post": {
+        "x-controller-name": "RegionController",
+        "x-operation-name": "updateRegion",
+        "tags": [
+          "RegionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Supplier Region model instance"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "operationId": "RegionController.updateRegion"
+      }
+    },
+    "/region/{supplierCode}": {
+      "get": {
+        "x-controller-name": "RegionController",
+        "x-operation-name": "findRegionRecordsBySupplierCode",
+        "tags": [
+          "RegionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of regions with states",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "supplierCode",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "RegionController.findRegionRecordsBySupplierCode"
+      }
+    },
+    "/supplier/dashboard": {
+      "get": {
+        "x-controller-name": "DashboardController",
+        "x-operation-name": "findSuppliers",
+        "tags": [
+          "DashboardController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of inventory list model instances for supplier dashboard",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VwSupplierInventory"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VwSupplierInventory.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DashboardController.findSuppliers"
+      }
+    },
+    "/supplier/inventory/geo/location": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findSupplierInventoryWithGeoLocation",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of supplier inventory geo location wise",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SupplierController.findSupplierInventoryWithGeoLocation"
+      }
+    },
+    "/supplier/inventory/group": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findSupplierGroupInventory",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of supplier inventory group model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "InventoryGroup Custom Model"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SupplierController.findSupplierGroupInventory"
+      }
+    },
+    "/supplier/inventory": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findSupplierInventory",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of supplier inventory model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VwSupplierInventory"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VwSupplierInventory.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SupplierController.findSupplierInventory"
+      }
+    },
+    "/supplier/locations": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findLocations",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of supplier location model instances",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "supplierId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "postcode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "SupplierController.findLocations"
+      }
+    },
+    "/supplier/products": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findSupplierProducts",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of suppliers product list model instances",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "supplierId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productItemId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productLabelName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "SupplierController.findSupplierProducts"
+      }
+    },
+    "/supplier/regions": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findSupplierRegions",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of supplier with regions",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SupplierController.findSupplierRegions"
+      }
+    },
+    "/supplier/transactions": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findSupplierTransaction",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of supplier transaction model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VwSupplierTransaction"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VwSupplierTransaction.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SupplierController.findSupplierTransaction"
+      }
+    },
+    "/suppliers": {
+      "get": {
+        "x-controller-name": "SupplierController",
+        "x-operation-name": "findSuppliers",
+        "tags": [
+          "SupplierController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of suppliers list model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Supplier"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Supplier.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SupplierController.findSuppliers"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3011"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "VwSupplierInventory": {
+        "title": "VwSupplierInventory",
+        "type": "object",
+        "properties": {
+          "supplierId": {
+            "type": "number"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "number"
+          },
+          "productItemId": {
+            "type": "string"
+          },
+          "productLabelName": {
+            "type": "string"
+          },
+          "cabinetType": {
+            "type": "string"
+          },
+          "ndc": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "customerName": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "onHandQty": {
+            "type": "number"
+          },
+          "inTransit": {
+            "type": "number"
+          },
+          "lot": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          },
+          "serialNo": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "supplierId",
+          "code",
+          "name",
+          "productItemId",
+          "onHandQty",
+          "inTransit"
+        ],
+        "additionalProperties": false
+      },
+      "Supplier": {
+        "title": "Supplier",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "supplierCode": {
+            "type": "string"
+          },
+          "supplierName": {
+            "type": "string"
+          },
+          "searchTerm": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "accountGroup": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "updatedBy": {
+            "type": "string"
+          },
+          "isDeleted": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "supplierCode",
+          "supplierName"
+        ],
+        "additionalProperties": false
+      },
+      "VwSupplierTransaction": {
+        "title": "VwSupplierTransaction",
+        "type": "object",
+        "properties": {
+          "supplierId": {
+            "type": "number"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "number"
+          },
+          "productItemId": {
+            "type": "string"
+          },
+          "productLabelName": {
+            "type": "string"
+          },
+          "cabinetType": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "onHandQty": {
+            "type": "number"
+          },
+          "type": {
+            "type": "number"
+          },
+          "serialNo": {
+            "type": "string"
+          },
+          "lot": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reasonCode": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "utrxTime": {
+            "type": "string"
+          },
+          "utrxDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "supplierId",
+          "code",
+          "name",
+          "productItemId",
+          "onHandQty",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "VwSupplierInventory.Fields": {
+        "title": "VwSupplierInventory.Fields",
+        "type": "object",
+        "properties": {
+          "supplierId": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "boolean"
+          },
+          "productId": {
+            "type": "boolean"
+          },
+          "productItemId": {
+            "type": "boolean"
+          },
+          "productLabelName": {
+            "type": "boolean"
+          },
+          "cabinetType": {
+            "type": "boolean"
+          },
+          "ndc": {
+            "type": "boolean"
+          },
+          "customerId": {
+            "type": "boolean"
+          },
+          "customerName": {
+            "type": "boolean"
+          },
+          "city": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "boolean"
+          },
+          "postcode": {
+            "type": "boolean"
+          },
+          "onHandQty": {
+            "type": "boolean"
+          },
+          "inTransit": {
+            "type": "boolean"
+          },
+          "lot": {
+            "type": "boolean"
+          },
+          "expiration": {
+            "type": "boolean"
+          },
+          "serialNo": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VwSupplierInventory.Filter": {
+        "type": "object",
+        "title": "VwSupplierInventory.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "VwSupplierInventory.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "$ref": "#/components/schemas/VwSupplierInventory.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<VwSupplierInventory>"
+      },
+      "VwSupplierTransaction.Fields": {
+        "title": "VwSupplierTransaction.Fields",
+        "type": "object",
+        "properties": {
+          "supplierId": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "boolean"
+          },
+          "productId": {
+            "type": "boolean"
+          },
+          "productItemId": {
+            "type": "boolean"
+          },
+          "productLabelName": {
+            "type": "boolean"
+          },
+          "cabinetType": {
+            "type": "boolean"
+          },
+          "city": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "boolean"
+          },
+          "postcode": {
+            "type": "boolean"
+          },
+          "onHandQty": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "boolean"
+          },
+          "serialNo": {
+            "type": "boolean"
+          },
+          "lot": {
+            "type": "boolean"
+          },
+          "expiration": {
+            "type": "boolean"
+          },
+          "reasonCode": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "boolean"
+          },
+          "utrxTime": {
+            "type": "boolean"
+          },
+          "utrxDate": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VwSupplierTransaction.Filter": {
+        "type": "object",
+        "title": "VwSupplierTransaction.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "VwSupplierTransaction.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "$ref": "#/components/schemas/VwSupplierTransaction.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<VwSupplierTransaction>"
+      },
+      "Supplier.Fields": {
+        "title": "Supplier.Fields",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "boolean"
+          },
+          "supplierCode": {
+            "type": "boolean"
+          },
+          "supplierName": {
+            "type": "boolean"
+          },
+          "searchTerm": {
+            "type": "boolean"
+          },
+          "address": {
+            "type": "boolean"
+          },
+          "city": {
+            "type": "boolean"
+          },
+          "region": {
+            "type": "boolean"
+          },
+          "postcode": {
+            "type": "boolean"
+          },
+          "country": {
+            "type": "boolean"
+          },
+          "accountGroup": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "type": "boolean"
+          },
+          "createdBy": {
+            "type": "boolean"
+          },
+          "updatedBy": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Supplier.Filter": {
+        "type": "object",
+        "title": "Supplier.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Supplier.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "$ref": "#/components/schemas/Supplier.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Supplier>"
+      }
+    }
+  }
+}
